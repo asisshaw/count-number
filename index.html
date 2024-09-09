@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 400px;
+      }
+      .num {
+        margin-bottom: 24px;
+      }
+      .btnn {
+        display: flex;
+        justify-content: space-between;
+        width: 100px;
+      }
+      .btn {
+        background-color: blueviolet;
+        padding: 0 10px;
+        color: white;
+        border: none;
+      }
+      .btn1,
+      .reset {
+        background-color: blueviolet;
+        padding: 10px 10px;
+        color: white;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div class="num">0</div>
+      <div class="btnn">
+        <button class="btn">-</button>
+        <button class="btn1">+</button>
+      </div>
+      <p class="para">
+        increse or dircement
+        <input type="number" class="numput" value="" />
+      </p>
+      <button class="reset">Reset</button>
+    </div>
+    <script>
+      //secelet a input , button
+      let count = document.querySelector(".num");
+      const minusBtn = document.querySelector(".btn");
+      const plusBtn = document.querySelector(".btn1");
+      const inputFiled = document.querySelector(".numput");
+      const resetBtn = document.querySelector(".reset");
+      //button adding eventListener
+      plusBtn.addEventListener("click", () => {
+        const countValue = parseInt(count.innerText);
+        let num = parseInt(inputFiled.value);
+        if (inputFiled.value === "") {
+          count.innerText = countValue + 1;
+        } else {
+          count.innerText = countValue + num;
+        }
+      });
+      minusBtn.addEventListener("click", () => {
+        const countValue = parseInt(count.innerText);
+        let num = parseInt(inputFiled.value);
+        if (inputFiled.value === "") {
+          count.innerText = countValue - 1;
+        } else {
+          count.innerText = countValue - num;
+        }
+      });
+      // reset button set addevent listener
+      resetBtn.addEventListener("click", () => {
+        inputFiled.value = "";
+        count.innerText = "";
+      });
+    </script>
+  </body>
+</html>
